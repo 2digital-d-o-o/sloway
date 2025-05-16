@@ -1,0 +1,26 @@
+@media (max-width: 600px) {
+    .invoice_top,
+    .invoice_top > tbody,
+    .invoice_top > tbody > tr,
+    .invoice_top > tbody > tr > td {
+        display: block;
+    }
+    .invoice_top td {
+        width: 100% !important;
+    }
+    .invoice_top td:first-child {
+        text-align: center;    
+    }
+    .invoice_top img {
+        max-width: 100%;
+    }    
+    
+    .invoice_columns { display: block }
+    .invoice_columns > tbody { display: block }
+    .invoice_columns > tbody > tr { display: block }
+    .invoice_columns > tbody > tr > td { display: block; width: 100% }
+    
+    .invoice_mobile { display: table }
+    .invoice_items { display: none }
+    .invoice_company { text-align: left; padding-bottom: 20px }
+}

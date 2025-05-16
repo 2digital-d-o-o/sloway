@@ -1,0 +1,113 @@
+#dyngrid_cursor {    
+    display: none;
+    position: fixed;
+    opacity: 0.9;
+    padding-left: 10px;
+}
+
+#dyngrid_cursor > label {
+    display: block;
+    border: 1px solid #767676;
+    line-height: 18px;
+    padding: 0 4px;
+    margin-left: 5px;
+    border-radius: 2px;
+    background-color: white;      
+}
+
+#dyngrid_cursor.dyngrid_sort label {
+    display: none;
+}
+
+#dyngrid_cursor > ul {
+    list-style: none outside none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+#dyngrid_cursor > ul > li {
+    position: absolute;   
+}
+
+.prevent_selection {
+  -webkit-user-select: none;
+     -moz-user-select: -moz-none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+#dyngrid_cont li {
+    position: fixed; 
+}
+
+.dyngrid {
+    outline: none;    
+    -webkit-user-select: none;
+     -moz-user-select: -moz-none;
+      -ms-user-select: none;
+          user-select: none;    
+}
+.dyngrid_selector {
+    display: none;
+    position: absolute;    
+    border: 1px solid #3399FF;
+    background-color: rgba(51,153,255, 0.2);
+    z-index: 1000;    
+}
+
+.dyngrid > ul {
+    display: block;
+    position: relative;
+    list-style: none outside none;
+    padding: 0;
+    margin: 0;    
+}
+
+.dyngrid_item {
+    display: inline-block;
+    width: 90%;
+    vertical-align: top;
+    border: 1px solid transparent; 
+    border-radius: 3px;
+}
+
+.dyngrid_item:hover {
+    border: 1px solid #B8D6FB; 
+    background-color: #EBF3FD;
+    box-shadow: inset 0px 0px 2px 0px rgba(255, 255, 255, 1);
+    background-image: linear-gradient(to bottom, #FCFDFE 0%, #EBF3FD 100%);           
+}
+
+.dyngrid_selected {
+    border: 1px solid #84ACDD; 
+    background-color: #CFE4FE;
+    box-shadow: inset 0px 0px 2px 0px rgba(255, 255, 255, 1);
+    background-image: linear-gradient(to bottom, #F1F7FE 0%, #CFE4FE 100%);   
+}
+
+.dyngrid_selected:hover {
+    border: 1px solid #7DA2CE; 
+    background-color: #C1DBFC;
+    box-shadow: inset 0px 0px 2px 0px rgba(255, 255, 255, 1);
+    background-image: linear-gradient(to bottom, #DCEBFC 0%, #C1DBFC 100%);   
+}
+
+.dyngrid_holder {
+    display: inline-block;
+    width: 90%;
+    vertical-align: top;
+    background-color: #f1f1f1;
+    border-radius: 3px;    
+}
+
+.dyngrid .dyngrid_dragged {
+    opacity: 0.5;    
+}
+
+.dyngrid_dropzone {
+    border: 1px solid darkgreen;    
+}
+
+.dyngrid_hidden {
+    display: none !important;    
+}

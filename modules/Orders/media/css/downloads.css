@@ -1,0 +1,40 @@
+.downloads {
+	color: #5f5f5f;
+	font-family: "Calibri";
+	font-size: 15px;
+	font-weight: normal;
+	text-align: left;
+	padding: 10px;
+	background-color: white;
+}
+
+.download * {
+	margin: 2px 0;    
+}
+
+.download_title {
+	color: black;
+}
+
+.download_desc {
+	font-size: 12px;	
+	margin-left: 20px;
+}
+
+.download_info {
+	font-size: 12px;    
+	margin-left: 20px;
+	margin-bottom: 10px;
+}
+
+
+.download_link {
+	margin-left: 20px;	
+	color: #017CB4;
+	font-weight: normal;
+}
+
+.download {
+	margin-bottom: 20px;	
+}
+

@@ -1,0 +1,71 @@
+#elemlayout_cont {
+    position: relative; 
+}
+
+.elemlayout {
+    position: absolute;    
+    z-index: 10000;
+}
+
+.elemlayout > * {
+    position: absolute; 
+}
+
+.elemlayout_handle {
+}
+
+.elemlayout_handle.elemlayout_margin,
+.elemlayout_handle.elemlayout_margin > * {
+    background-color: rgba(255,255,0,0.3);    
+}
+.elemlayout_handle.elemlayout_padding,
+.elemlayout_handle.elemlayout_padding > * {
+    background-color: rgba(0,255,0,0.3);
+}
+.elemlayout_handle.elemlayout_margin .elemlayout_label,
+.elemlayout_handle.elemlayout_padding .elemlayout_label {
+    background-color: transparent;
+}   
+
+.elemlayout_handle > * {
+    position: absolute;
+    -moz-user-select: -moz-none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.elemlayout_grip_t { left: 0; right: 0; top: 0; cursor: ns-resize; z-index: 100 }
+.elemlayout_grip_b { left: 0; right: 0; bottom: 0; cursor: ns-resize; z-index: 100 }
+.elemlayout_grip_l { left: 0; top: 0; bottom: 0; cursor: ew-resize; z-index: 100 }
+.elemlayout_grip_r { right: 0; top: 0; bottom: 0; cursor: ew-resize; z-index: 100 }
+
+.elemlayout_grip_tl { left: 0; top: 0; cursor: se-resize; z-index: 101 }
+.elemlayout_grip_tr { right: 0; top: 0; cursor: ne-resize; z-index: 101 }
+.elemlayout_grip_br { right: 0; bottom: 0; cursor: se-resize; z-index: 101 }
+.elemlayout_grip_bl { left: 0; bottom: 0; cursor: ne-resize; z-index: 101 }
+
+.elemlayout_grip_b:before {
+    content: " ";
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background-color: white;
+    margin-top: -1px;
+    border-top: 1px solid silver;    
+    border-bottom: 1px solid silver;    
+}
+.elemlayout_label {
+    z-index: 99;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: black;
+}   
+
+

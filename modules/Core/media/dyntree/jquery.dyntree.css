@@ -1,0 +1,114 @@
+.prevent_selection {
+  -webkit-user-select: none;
+     -moz-user-select: -moz-none;
+      -ms-user-select: none;
+          user-select: none;
+}
+.dyntree_invalid, .dyntree_invalid * {
+    cursor: no-drop !important;    
+}
+.dyntree_dragging, .dyntree_dragging * {
+    cursor: pointer !important;    
+}
+
+ul.dyntree_list {
+    list-style: none outside none;
+    padding: 0;
+    margin: 0;
+}
+
+.dyntree:not(.dyntree_expandable) > ul > li {
+    padding-left: 0;
+    margin-left: 0;    
+}
+
+li.dyntree_node {
+    padding-left: 20px;  
+    position: relative; 
+}
+
+div.dyntree_button {
+    top: 0;
+    left: 0;
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-position: center center;
+    cursor: pointer;
+}
+
+li.dyntree_node.dyntree_parent > div.dyntree_button {
+    background-image: url(img/icon-plus.png);
+}
+li.dyntree_node.dyntree_parent.dyntree_expanded > div.dyntree_button {
+    background-image: url(img/icon-minus.png);
+}
+
+.dyntree_dropzone {
+    background-color: rgba(255,0,0,0.4);
+}
+
+.dyntree_holder,
+.dyntree_shadow {
+    box-sizing: border-box;
+    padding-left: 20px;
+}
+.dyntree_holder > div,
+.dyntree_shadow > div {
+    background-color: #f1f1f1;   
+}
+
+.dyntree_spacer {
+    margin-left: 20px;
+    position: relative;
+}
+
+.dyntree_spacer > div {
+    position: absolute;
+    top: -10px;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    background-color: rgba(255,0,0,0.5);
+} 
+
+#dyntree_cursor {    
+    display: none;
+    position: fixed;
+    opacity: 0.9;
+    padding-left: 10px;
+}
+
+#dyntree_cursor, #dyntree_cursor * {
+    pointer-events: none
+}
+
+#dyntree_cursor > label {
+    display: block;
+    border: 1px solid #767676;
+    line-height: 18px;
+    padding: 0 4px;
+    border-radius: 2px;
+    background-color: white;      
+}
+
+#dyntree_cursor.dyntree_sort label {
+    display: none;
+}
+
+#dyntree_cursor > ul {
+    list-style: none outside none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+#dyntree_cursor > ul > li {
+    padding-left: 0;   
+}
+
+.dyntree_hook {
+    cursor: move;    
+}
+
+

@@ -1,0 +1,12 @@
+<?php 
+	use Sloway\Admin;
+?>
+
+<script>  
+$(document).ready(function() {
+ 
+});
+
+<?php
+	echo Admin::Field(et('Title'), Admin::Edit('title', null, true));
+?>

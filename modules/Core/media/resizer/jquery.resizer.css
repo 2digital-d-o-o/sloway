@@ -1,0 +1,43 @@
+#resizer_cont {
+    position: relative;    
+}
+
+.resizer {
+    position: absolute;
+    border: 1px solid silver; 
+    z-index: 10000;   
+}
+
+.resizer_handle {
+    border: 1px solid gray;
+    background-color: white;    
+    width: 5px;
+    height: 5px;
+    margin-top: -4px;
+    margin-left: -4px;
+    top: 50%;
+    left: 50%;
+    z-index: 1;
+    position: absolute;
+}
+
+.resizer_handle.resizer_top { top: 0; cursor: ns-resize }
+.resizer_handle.resizer_bottom { top: 100%; margin-top: -3px; cursor: ns-resize }
+
+.resizer_handle.resizer_left { left: 0; cursor: ew-resize }
+.resizer_handle.resizer_right { left: 100%; margin-left: -3px; cursor: ew-resize }
+
+.resizer_handle.resizer_top.resizer_left, .resizer_handle.resizer_bottom.resizer_right { cursor: se-resize }
+.resizer_handle.resizer_top.resizer_right, .resizer_handle.resizer_bottom.resizer_left { cursor: ne-resize }
+
+
+.resizer_glass {
+    z-index: 0;
+    position: absolute;
+    background-color: darkgreen;
+    opacity: 0.2;    
+}
+.resizer_glass.resizer_top { top: 0; left: 0; right: 0 }
+.resizer_glass.resizer_bottom { bottom: 0; left: 0; right: 0 }
+.resizer_glass.resizer_left { left: 0 }
+.resizer_glass.resizer_right { right: 0 }

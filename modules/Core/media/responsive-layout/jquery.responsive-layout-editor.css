@@ -1,0 +1,457 @@
+.prevent_selection {
+  -webkit-user-select: none;
+     -moz-user-select: -moz-none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.rl_template_span {
+    position: relative;    
+}
+.rle_resizer_wrapper {
+    position: relative;
+    overflow: hidden;    
+}
+.rl_editor .rl_editable img {
+    max-width: 100% !important;            
+}
+
+.rle_templates {
+    display: none;
+}
+
+.rle_clipboard {
+    height: 0;
+    overflow: hidden;    
+}
+
+.rle_fragments {
+    list-style: none outside none;
+    padding: 0;
+    margin: 0;    
+}
+
+.rle_fragment .rl_editable {
+    cursor: pointer;
+    display: block;
+    border: 1px solid silver;  
+    position: relative;  
+    z-index: 0;
+	padding: 5px;
+}      
+
+.rle_empty {
+    min-height: 20px;                
+}
+
+.rl_editor > .rle_tree {
+    min-height: 20px;
+    border: 1px solid silver;
+}
+
+.rle_fragment:hover .rle_handle,
+.rle_fragment.ui-sortable-handler {
+    display: block;    
+}
+
+.rle_menu {
+    overflow: hidden;
+}
+
+.rle_handle {
+    display: none;
+    padding-left: 25px;
+    padding-top: 4px;
+    padding-right: 10px;
+    font-weight: bold;
+    height: 24px;
+    position: absolute;
+    top: -24px;
+    left: -1px;
+    cursor: pointer;
+    background-position: 5px 4px;
+    background-repeat: no-repeat;
+    background-image: url(move.png); 
+    background-color: white;
+    border: 1px solid silver;   
+    border-bottom: 0;
+}
+
+.rl_template_element {
+    display: none;    
+}
+.tl_tree {
+    border: 1px solid silver;  
+    margin-bottom: 10px;  
+    min-height: 100px;
+    background-color: white;
+}
+
+.rle_fragment .rl_editable:not(.rle_templated):hover {
+    border: 1px solid gray;    
+}
+
+.rle_fragments > .rle_fragment:not(:first-of-type) {
+   /* border-top: 1px solid silver; */
+} 
+
+.rle_fragment {
+    position: relative;
+}
+
+.rle_fragment.dyntree_detached {
+    border: 1px solid silver;  
+}
+
+.rle_fragment > .dyntree_item {
+    padding-bottom: 5px;    
+    border: 0px solid silver;  
+    margin: 5px;
+}
+
+.rle_drop_placeholder {
+    background-color: green;    
+    opacity: 0.4;
+}
+
+.rle_fragment:hover .ce_paragraph_menu {
+    display: block;
+}
+
+#rle_menu, #rle_menu ul {
+    min-width: 100px;
+    z-index: 10000;
+    display: block;
+    position: absolute;
+    list-style: none outside none;
+    padding: 2px 5px;
+    margin: 0;
+    position: fixed;
+    border: 1px solid silver;
+    background-color: white;
+    font-size: 13px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);    
+}
+
+#rle_menu li {
+    color: #003399;   
+    position: relative;
+    padding-right: 20px;
+    border: 1px solid transparent;
+}
+
+#rle_menu li:hover {
+    background-color: #DAEAFC;
+    border: 1px solid #7CA1CE;
+    box-shadow: inset 0px 0px 1px 0px rgba(255, 255, 255, 0.8); 
+    border-radius: 2px;   
+}
+
+#rle_menu ul {
+    display: none;
+    top: -3px;
+    left: 100%;    
+}
+
+#rle_menu a {
+    color: black;
+    cursor: pointer;       
+    white-space: nowrap;
+    text-decoration: none;
+    font-weight: normal;
+    display: block;
+    line-height: 20px;
+    padding-left: 25px;
+    background-repeat: no-repeat;
+    background-position: 2px 2px;
+    padding: 0 5px;
+    padding-left: 22px;
+}
+
+#rle_menu li.rle_subitems:hover > a:before {
+    border-left-color: #7CA1CE;        
+}
+
+
+.rlm_subitems:after {
+    position: absolute;
+    right: 4px;
+    top: 8px;
+    content: "";
+    width: 0; height: 0; 
+    border-top: 3px solid transparent; 
+    border-left: 6px solid gray; 
+    border-bottom: 3px solid transparent;    
+}
+
+.rle_template_icon { 
+    background-image: url(icon-template.png); 
+    background-repeat: no-repeat;
+	background-size: 24px;
+}
+
+.rle_menu .cm_item > span {
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-position: 2px 2px;
+    padding-left: 22px;
+    background-size: 14px;
+}
+.rlm_fragment_delete > span { background-image: url(icon-delete.png); }
+.rlm_editable > span { background-image: url(icon-editable.png); }
+.rlm_editable_edit > span { background-image: url(icon-editable-edit.png); }
+.rlm_editable_copy > span { background-image: url(icon-copy.png); }
+.rlm_editable_clear > span { background-image: url(icon-delete.png); }
+.rlm_editable_add > span { background-image: url(icon-editable-add.png); }
+.rlm_editable_paste > span { background-image: url(icon-copy.png); }
+.rlm_root_paste > span { background-image: url(icon-copy.png); }
+.rlm_root_copy > span { background-image: url(icon-copy.png); }
+.rlm_root_clear > span { background-image: url(icon-delete.png); }
+.rlm_fragment_copy > span { background-image: url(icon-copy.png); }
+.rlm_element > span { background-image: url(icon-element.png); }
+.rlm_document > span { background-image: url(icon-element.png); }
+.rlm_element_padding > span { background-image: url(icon-element-padding.png); }
+.rlm_element_padding > span { background-image: url(icon-element-padding.png); }
+.rlm_element_margin > span { background-image: url(icon-element-padding.png); }
+.rlm_element_resize > span { background-image: url(icon-resize.png); }
+.rlm_properties > span { background-image: url(icon-settings.png); }
+
+#rle_cont {
+    position: relative;    
+}
+
+#rle_overlay {
+    position: absolute;
+    border: 1px solid #6486EC;
+    background-color: rgba(100,134,236,0.2);
+    z-index: 1000;    
+}
+
+.rle_add_fragment {
+    width: 200px;
+    float: left;
+}
+
+.rle_media_select {
+    width: 200px;
+    float: left;
+    margin-left: 10px;
+}
+
+.rle_addfrag_item {
+    padding-left: 22px;
+    background-position: 2px 2px; 
+	background-size: 15px!important;	
+}
+
+.rle_paste_item {
+    padding-left: 22px;
+    background-position: 2px 1px;    
+}
+
+.rle_hide_headers .rle_frag_header {
+    display: none;    
+}
+
+.rle_layout_header { 
+    display: none;    
+}
+
+.rle_layout_header, .rle_frag_header {
+    color: black;
+    font-weight: bold;
+    background-color: #EEEEEE;
+    padding: 4px 6px;
+    min-height: 23px;
+    padding-left: 28px;
+    padding-right: 50px;
+    border-bottom: 0px solid silver;
+    margin-bottom: 4px;
+    position: relative;
+    background-position: 6px 6px;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+.rle_frag_title {
+    overflow: hidden;
+    display: block;
+    white-space: nowrap;
+}                
+.rle_frag_title > * {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 14px;
+    padding: 2px 0px 0px 9px;
+}       
+.rle_frag_title > sub {
+    color: gray;
+    margin-left: 5px;   
+}
+
+.rle_frag_header > a {
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    background-repeat: no-repeat;
+    float: right;
+    margin-left: 4px;
+    top: 6px;
+}
+.rle_frag_header > a:hover {
+    opacity: 1;    
+}
+.rle_frag_header > a.rle_frag_properties { background-image: url(icon-settings.png);background-size: 20px; }
+.rle_frag_header > a.rle_frag_delete { background-image: url(icon-delete2.png);background-size: 20px; }
+
+.rle_frag_header_del {background-image: url(icon-remove.png);background-size: 20px; margin-right: 10px;}
+.rle_frag_header_add { background-image: url(icon-insert.png); background-size: 20px; margin-right: 5px; }
+
+.rle_frag_media {
+    position: absolute;
+    white-space: nowrap;
+    width: auto !important;
+    padding-top: 3px;
+    top: 6px;
+    padding-right: 4px;
+}
+.rle_frag_media > span {
+    display: inline-block;
+    width: 8px;
+    height: 14px;
+    margin-right: 2px;
+    cursor: pointer;
+}
+.rle_frag_media > span.disabled {
+    background-color: silver !important;    
+}
+
+.rle_resizer {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 0;    
+}
+.rle_resizer > div {
+    position: absolute;
+    top: 0;
+    left: -5px;
+    right: -5px;
+    bottom: 0;
+    cursor: ew-resize;
+    z-index: 11;
+}
+.rle_resizer > label {
+    position: absolute;  
+    font-size: 7px;
+    top: 50%;
+    left: 0;
+    z-index: 10;
+    color: gray;
+    transform: translateX(-50%);
+}
+
+
+
+
+#rle_fullscreen {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;   
+    z-index: 10000;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+#rle_fs_header {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 30px;
+    padding: 0 10px;
+    background-color: #eeeeee;
+    border-bottom: 1px solid silver;    
+}
+
+#rle_fs_size {
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 30px;    
+}
+
+#rle_fs_close {
+    float: right;
+    width: 30px;
+    height: 30px;
+    background-image: url(icon-delete2.png);
+    background-position: center center;
+    background-repeat: no-repeat;  
+    opacity: 0.5;  
+    cursor: pointer;
+}
+#rle_fs_close:hover {
+    opacity: 1;    
+}
+
+#rle_fs_main {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 31px;
+    bottom: 31px;
+}
+
+#rle_fs_resizable {
+    height: 100%;
+    position: relative;
+    margin: auto;           
+    background-color: white;
+}
+
+#rle_fs_editor {
+    position: relative;
+    height: 100%;
+    overflow: auto;
+}
+
+#rle_fs_resizer {
+    position: absolute;
+    top: 0;
+    right: -5px;
+    bottom: 0; 
+    width: 5px;
+    cursor: ew-resize;
+}
+
+#rle_fs_footer {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 30px;    
+    background-color: #eeeeee;
+    border-top: 1px solid silver;    
+}
+
+#rle_fullscreen .rle_menu { display: none }
+#rle_fullscreen .rle_frag_header{ display: none }
+#rle_fullscreen .rle_layout_header { display: block }
+/*
+#rle_fullscreen .rle_fragment { border: 0 !important }
+#rle_fullscreen .dyntree_item { border: 0 !important }
+#rle_fullscreen .rl_editable { border: 1px solid transparent }        
+#rle_fullscreen .rl_editable:hover { border: 1px solid silver }
+*/
+
+#rle_fullscreen .rle_mark_collapsed {
+    background-color: rgba(255,0,0,0.2);    
+}
+
+.info {
+    position: absolute;
+    background-color: rgba(255,255,255, 0.8);
+    padding: 5px;
+    top: 0;
+    left: 0;    
+}

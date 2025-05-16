@@ -1,0 +1,111 @@
+.contextmenu, .contextmenu ul {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); 
+    padding: 2px;
+    border: 1px solid #979797;
+    background-color: #F1F1F1;
+    font-size: 13px;
+}
+
+.contextmenu.cm_icons:before {
+    content: "";
+    border-left: 1px solid #E2E3E3;
+    border-right: 1px solid white;
+    top: 0;
+    bottom: 0;
+    left: 28px;
+    display: block;
+    position: absolute;    
+}
+
+.contextmenu .cm_item {
+    color: black;  
+    white-space: nowrap;
+    position: relative;
+    line-height: 20px;
+    padding-left: 5px;
+    padding-right: 5px;
+    min-width: 50px;
+    border: 1px solid transparent;
+}
+
+.contextmenu.cm_icons .cm_item {
+    padding-left: 32px;
+}
+
+.contextmenu .cm_item:hover {
+    background-image: linear-gradient(to top, rgba(124,161,206,0.1) 0%, rgba(165,205,255,0.1) 100%);
+    border: 1px solid #7CA1CE;
+    box-shadow: inset 0px 0px 1px 0px rgba(255, 255, 255, 0.8); 
+    border-radius: 2px; 
+}
+
+.contextmenu .cm_item > ul {
+    top: -3px;
+    left: 100%;    
+}
+
+.contextmenu a {
+    color: black;
+    cursor: pointer;       
+    white-space: nowrap;
+    text-decoration: none;
+    font-weight: normal;
+    display: block;
+    line-height: 20px;
+    padding-left: 25px;
+    background-repeat: no-repeat;
+    background-position: 2px 2px;
+    padding: 0 5px;
+    padding-left: 22px;
+}
+
+#tle_menu .cm_item.tle_subitems:hover > a:before {
+    border-left-color: #7CA1CE;        
+}
+
+.contextmenu .cm_item.cm_parent {
+    padding-right: 20px;
+}
+
+.contextmenu .cm_item.cm_parent:after {
+    position: absolute;
+    right: 4px;
+    top: 8px;
+    content: "";
+    width: 0; height: 0; 
+    border-top: 3px solid transparent; 
+    border-left: 6px solid gray; 
+    border-bottom: 3px solid transparent;    
+}
+
+.cm_item_icon {
+    position: absolute;
+    left: 2px;
+    top: 2px; 
+    width: 16px;
+    height: 16px;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.cm_item_check .cm_item_icon {
+    background-image: url(unchecked.png);
+}
+
+.cm_item_checked .cm_item_icon {
+    background-image: url(checked.png);
+}
+
+.cm_separator {
+    margin-top: 4px;
+    margin-bottom: 2px;
+    border-top: 1px solid #E2E3E3;
+    border-bottom: 1px solid white;   
+}
+.cm_separator:last-child {
+    display: none;    
+}
+
+.contextmenu.cm_icons .cm_separator {
+    margin-left: 28px;    
+}

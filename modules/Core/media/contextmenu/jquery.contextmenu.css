@@ -1,0 +1,35 @@
+.contextmenu, .contextmenu ul {
+    min-width: 100px;
+    position: fixed;
+    display: block;
+    list-style: none outside none;
+    position: fixed;
+    margin: 0;
+    padding: 0;
+}
+
+.contextmenu li {
+    position: relative;
+    cursor: pointer;
+}
+
+.contextmenu li > ul {
+    display: none;
+    left: 100%;    
+}
+
+.contextmenu a {
+    color: black;
+    cursor: pointer;       
+    white-space: nowrap;
+    text-decoration: none;
+    display: block;
+}
+
+.contextmenu li.cm_parent:after {
+    position: absolute;
+    right: 4px;
+    top: 8px;
+    content: "";
+    width: 0; height: 0; 
+}

@@ -1,0 +1,75 @@
+.dg_menu_right {
+	float: right;    
+}
+
+.dg_indent {
+	height: 2px;
+	display: inline-block;	
+}
+
+.dg_draggable {
+	display: inline-block;	
+}
+
+.dg_drop_location {
+	position: fixed;
+}
+
+.dg_node {
+	overflow: hidden;
+	position: relative;
+   
+}   
+
+.dg_node.dg_drop, .dg_node_grip {
+	cursor: pointer;	
+	
+	user-select: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-o-user-select: none;
+	user-select: none;     
+}
+
+.dg_drop_locator {
+	z-index: 1000;
+	display: none;
+	position: fixed;
+	height: 1px;
+}
+
+.dg_drop_cursor {
+	z-index: 1000;
+	display: none;
+	position: fixed;
+	opacity: 0.7;
+}
+
+.dg_node_icon {
+	cursor: pointer;
+	position: absolute;
+	z-index: 1;
+	left: 0;
+	top: 0;
+}       
+
+.dg_tl_v {
+	position: absolute;
+	border-right: 1px solid silver;
+	top: 0;
+	bottom: 0;	
+}
+
+.dg_tl_vh {
+	position: absolute;
+	border-right: 1px solid silver;
+	top: 0;
+}
+
+.dg_tl_h {
+	position: absolute;
+	border-bottom: 1px solid silver;
+	top: 0;
+}
+

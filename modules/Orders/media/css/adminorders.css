@@ -1,0 +1,101 @@
+.admin_orders_analytics {
+	width: 100%;
+	border: 1px solid silver;
+	background-color: white;
+    border-spacing: 0;
+}
+
+.admin_orders_analytics td {
+	padding: 4px;   
+    vertical-align: top;
+}
+
+.admin_orders_analytics thead td {
+	font-weight: bold; 
+	border-bottom: 1px solid silver;       
+	background-color: #EEEEEE;
+}
+
+.admin_orders_analytics tfoot tr {
+	background-color: #EEEEEE;
+}
+
+.admin_orders_analytics tfoot tr:first-child td {
+	border-top: 1px solid silver;
+}
+
+.admin_orders_analytics tbody tr:nth-child(odd) {
+	background-color: #f7f7f7;
+}
+
+.admin_orders_analytics tbody tr:hover {
+	background-color: #e7f4f9;
+}
+
+.admin_orders_analytics td:nth-child(1) {
+	width: 20px;	
+}
+
+.admin_orders_perpage {
+	width: 60px;     
+}
+
+.admin_orders_perpage .advheight {
+	height: 16px;
+	line-height: 16px;
+}
+
+.admin_orders_analytics input {
+	margin: 0;
+	margin-left: 1px;	
+}
+
+#analytics_results.calculating {
+    height: 40px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-image: url(../img/loader-horiz.gif);    
+}
+
+.admin_order_viewed {
+    color: #555;
+}
+
+
+#analytics_view {    
+    vertical-align: middle;
+    float: right;
+    width: 100px;
+    height: 19px; 
+    margin-left: 10px;
+    font-size: 11px;
+    color: #5a5a5a;   
+    text-transform: none;
+}
+
+#analytics_progress {
+    height: 30px;   
+    position: relative; 
+    font-size: 14px;
+    border: 1px solid silver;
+}
+
+#analytics_progress > div {
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    top: 0px;
+    background-color: lightgreen;
+    z-index: 0;
+}
+#analytics_progress > label {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: block;
+    line-height: 30px;
+    text-align: center;    
+}

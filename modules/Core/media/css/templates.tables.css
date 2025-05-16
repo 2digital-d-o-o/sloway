@@ -1,0 +1,57 @@
+.rl_template .rl_editable img {
+    max-width: 100%;    
+}
+
+.rl_editable p,
+.rl_editable h1,
+.rl_editable h2,
+.rl_editable h3,
+.rl_editable h4 {
+    margin-top: 0;    
+}
+
+table.rl_template { table-layout: fixed }
+
+table.rl_template_column2 > tbody > tr > td.rl_column {
+    width: 49%;
+    vertical-align: top;    
+}
+
+table.rl_template_column3 > tbody > tr > td.rl_column {
+    width: 32%;
+    vertical-align: top;    
+}
+
+table.rl_template_column4 > tbody > tr > td.rl_column {
+    width: 23.5%;
+    vertical-align: top;    
+}
+
+table.rl_template_image_text {
+    table-layout: fixed;        
+}
+
+table.rl_template_image_text > tbody > tr > td.rl_left {
+    width: 15%;
+    vertical-align: top;    
+}
+
+table.rl_template_image_text > tbody > tr > td.rl_right {
+    width: 82%;
+    vertical-align: top;    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

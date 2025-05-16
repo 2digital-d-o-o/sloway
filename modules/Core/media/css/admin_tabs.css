@@ -1,0 +1,110 @@
+/* TABS */
+
+.admin_tabs_header {
+    position: relative;
+    vertical-align: bottom;
+    margin-bottom: 5px;
+    overflow: hidden;
+    padding: 10px 15px;
+    padding-bottom: 0;
+    background-color: #ececec;
+    margin-top: 30px;
+}
+.admin_tabs_tab {	
+    cursor: pointer;
+    background-color: white;
+    text-transform: uppercase;
+    text-align: center;    
+    height: 30px;   
+    position: relative;
+    z-index: 1;
+    float: left;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    border-bottom: 0;
+    border-top: 0;
+    transition: background-color 200ms;
+}   
+.admin_tabs_tab:hover {
+    background-color: #48C500;
+}
+.admin_tabs_tab.selected {
+    background-color: #3571b0;
+}
+.admin_tabs_tab:hover a,
+.admin_tabs_tab.selected a { 
+    color: white;
+}
+
+.admin_tabs_tab a {
+    color: black;
+    display: block;
+    font-weight: 100;
+    line-height: 30px;
+    height: 30px;   
+    padding: 0 20px;
+    overflow: hidden;
+    font-weight: bold;
+    text-decoration: none !important; 
+	min-width: 80px;
+}
+
+.admin_tabs_page {
+    border: 0;
+    padding: 0;
+    background-color: transparent;
+}
+ 
+
+.admin_ctabs_page {
+    background-color: white;
+}
+
+.admin_ctabs {
+/*    box-shadow: 0px 0px 10px silver;   
+    padding: 10px 15px;
+    
+   */
+   padding: 10px 0;
+}
+
+.admin_ctabs_menu {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    right: 5px;    
+}
+
+.admin_ctabs_header {
+    overflow: hidden;  
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.admin_ctabs_tab {
+    float: left;
+    height: 30px;
+    cursor: pointer;
+    line-height: 30px;	   
+    color: #5A5A5A;
+    background-color: #ececec;
+    text-align: center;
+    margin-right: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.admin_ctabs_tab a {
+    color: #5A5A5A;
+    font-weight: normal;
+}
+
+.admin_ctabs_tab:hover, .admin_ctabs_tab.selected {
+    color: #0075AB;
+    background-color: #3571b0;
+}
+
+.admin_ctabs_tab:hover a, .admin_ctabs_tab.selected a {
+    color: white;
+    text-decoration: none;
+}

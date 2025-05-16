@@ -1,0 +1,261 @@
+.ac_cont {
+    position: relative;    
+}
+
+.ac_valign {
+    display: inline-block;
+    width: 0px;
+    vertical-align: middle;
+}
+
+/****************************************************************************/
+/*  
+/*      PRODUCT GRID
+/*
+/****************************************************************************/
+
+.ac_edit {
+	position: relative;	
+}
+
+.ace_value {
+    position: relative;
+    z-index: 1;    
+}
+.ace_default {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;   
+    z-index: 0;
+}
+
+.ac_edit .ac_menu {
+    position: absolute;
+    right: 2px;
+}
+
+.ace_value > .ac_value {    
+	font-size: inherit;
+	font-family: inherit;
+	color: inherit;
+	border: 0;
+	background: 0;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	outline: 0;
+	height: inherit;	
+	resize: none;
+}
+                       
+.ace_value > textarea.ac_value {
+    overflow: auto; 
+}
+
+
+/****************************************************************************/
+/*  
+/*      PRODUCT GRID
+/*
+/****************************************************************************/
+
+.ac_select {
+	position: relative;
+	display: block;
+	outline: 0;
+    padding: 0 5px;
+    height: 40px;
+}
+
+.ac_select .ac_value {
+	display: none;	
+}
+
+.acs_main {
+	left: 0;
+	top: 0;
+	bottom: 0;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+.acs_button {
+	position: absolute;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	cursor: pointer;
+}
+
+.acs_edit {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 1;
+}
+
+.acs_edit > input {
+	font-size: inherit;
+	font-family: inherit;
+	color: inherit;
+	border: 0;
+	background: 0;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	outline: 0;
+	height: inherit;  
+	display: inline-block;  
+}
+
+.ac_items {
+	display: none;
+	position: absolute;
+	overflow-y: auto;
+	z-index: 50000;
+}
+
+.ac_items > ul {
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	list-style: none outside none;
+}
+
+.ac_item, .ac_group {
+	white-space: nowrap;
+}
+
+.ac_slider {
+	position: relative;	
+}
+
+.ac_slider > * {
+	position: absolute;	
+}
+
+.ac_slider .ac_value {
+	display: none;
+}
+
+.acs_range {
+	z-index: 1;	
+}
+
+.acs_grip {
+	z-index: 2;
+	user-select: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-o-user-select: none;    
+}
+
+
+.ac_checklist {
+    outline: none;   
+    overflow: auto; 
+}
+
+.ac_checklist .ac_value {
+	display: none;	
+}
+
+.ac_checklist .acl_items {
+	margin: 0;
+	padding: 0;
+    display: inline-block;
+    vertical-align: middle;
+	list-style: none outside none;	
+}
+
+.ac_checklist .acl_item {
+    position: relative;
+	display: inline-block;	
+	cursor: pointer;
+    margin-bottom: 2px;
+	user-select: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-o-user-select: none;       
+}
+
+.ac_tree, .ac_tree ul {
+    list-style: none outside none; 
+    margin: 0;
+    padding: 0;       
+}
+
+.act_item {
+    display: inline-block;
+    height: 20px;  
+    border: 1px solid transparent;  
+    white-space: nowrap;
+}
+
+.act_node {
+    position: relative;    
+}
+
+.act_line_v {
+    z-index: 0;
+    position: absolute;
+    top: 0;
+    border-right: 1px solid silver;    
+}                            
+
+.act_line_h {
+    z-index: 0;
+    position: absolute;
+    top: 0;
+    border-bottom: 1px solid silver;    
+}
+
+.act_button {
+    z-index: 1;
+    cursor: pointer;
+    position: absolute;    
+    top: 0;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.ac_checktree {
+    margin: 0;
+    overflow: auto;    
+}
+
+.ac_checktree .ac_tree {
+    display: inline-block;
+    vertical-align: middle;  
+}
+
+.ac_selecttree {
+    overflow: auto;    
+}
+.ac_selecttree .ac_tree {
+    display: inline-block;
+    vertical-align: middle;  
+}
+
+.ac_checkbox { display: inline-block }
+
+
+.acontrol {
+    height: 20px;
+    padding: 0 5px;
+    outline: 0; 
+}
+
+.ac_loading {
+    margin: 0;  
+    overflow: hidden; 
+}
+.ac_loading > * {
+    opacity: 0;
+}

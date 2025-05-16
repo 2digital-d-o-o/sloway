@@ -1,0 +1,167 @@
+.axis {
+	color: black;	
+    min-height: 120px;
+}
+
+.axis * {
+	-webkit-user-select: none; 
+	-moz-user-select: none;  
+	-ms-user-select: none;   
+	-o-user-select: none;
+	user-select: none;          	
+}
+
+.axis a {
+	color: black;
+	padding-left: -1px;
+}
+
+.axis_main {
+	position: relative;
+	border: 1px solid silver;
+	overflow: hidden;
+}
+
+
+.axis_region {
+	position: absolute;
+	overflow: hidden;
+	bottom: 0;
+	top: 0;
+	border-left: 1px solid silver;
+}
+
+.axis_scale {
+	position: absolute;
+	background-color: #EEEEEE;
+	width: 100%;
+	height: 15px;
+	bottom: 0;	
+	z-index: 1; 
+}
+
+.axis_move {
+	position: absolute;  
+	bottom: 0;
+	height: 15px;
+	cursor: move;	
+	left: 0;
+	right: 0;
+	z-index: 10;
+}
+
+.axis_region_title {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;	
+	background: #EEEEEE;
+	border-bottom: 1px solid silver;
+	padding: 2px 5px;
+	z-index: 1;
+}
+
+.axis_region_title:hover {
+	background: #E7F4F9;
+}
+		
+.axis_events {
+	position: absolute;
+	bottom: 15px;
+	top: 18px;
+	left: 0;
+	right: 0;
+}		
+
+.axis_cursor {
+	position: absolute;
+	border-left: 1px solid #B4E5FA;
+	color: blue;
+	top: 1px;
+	bottom: 0;
+	left: 0;
+	z-index: 5;
+}
+
+.axis_cursor > span { 
+	background-color: #E7F4F9;
+	padding: 1px 2px;
+	border: 1px solid #B4E5FA;
+	border-top-right-radius: 3px;
+	border-bottom-right-radius: 3px;
+	border-left: 0;	
+	margin-top: 1px;
+	-moz-box-shadow: 1px 1px 2px silver; 
+	-webkit-box-shadow: 1px 1px 2px silver; 
+	box-shadow: 1px 1px 2px silver;       
+	
+}
+
+.axis_scale_marker {
+	display: inline-block;
+	border-left: 1px solid silver;	
+	user-select: none;
+	position: absolute;
+	margin-left: -1px;
+	padding-left: 3px;
+}
+
+.axis_event {
+	top: 0;
+	bottom: 0;
+	position: absolute;
+	border-left: 1px solid silver;	
+}
+
+
+.axis_event_title {
+	position: absolute;	
+	white-space: nowrap;
+	border: 1px solid silver;
+	background-color: #EEEEEE;
+	padding: 2px 5px;
+	border-top-right-radius: 4px;
+	border-bottom-right-radius: 4px;
+	
+	-moz-box-shadow: 1px 1px 2px silver; 
+	-webkit-box-shadow: 1px 1px 2px silver; 
+	box-shadow: 1px 1px 2px silver;       
+}
+
+.axis_event_title > * {
+    display: inline-block;
+    vertical-align: middle;   
+}
+
+
+.axis_event.axis_selected .axis_event_title {
+	background-color: #E7F4F9;
+	border-color: #B4E5FA    
+	
+}
+
+.axis_region_title > span {
+	white-space: nowrap;	
+}
+
+.axis_event_hook {
+	cursor: move;
+	margin-left: -1px;	
+	z-index: 200;
+}
+
+.axis_menu {
+	color: black;
+	z-index: 50000;
+}   
+
+.axis_positioned {
+	position: absolute;	
+	background-color: gray;
+}
+
+.timeline_weekend {
+    background-color: #f4f4f4;
+    bottom: 0;
+    top: 0;
+}

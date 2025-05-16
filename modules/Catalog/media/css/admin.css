@@ -1,0 +1,63 @@
+.catalog_browser {
+    position: absolute;
+    top: 20px;
+    bottom: 20px;
+    left: 20px;
+    width: 66%;    
+}
+
+.catalog_browser_toolbar {
+    position: absolute;
+    top: 20px;
+    bottom: 20px;
+    right: 20px;
+    width: 28%;    
+    border: 1px solid silver;
+    background-color: white;
+}
+
+.cbt_header {
+    line-height: 24px;
+    background-color: #eee;
+    background-image: linear-gradient(to bottom, #fff 0%, #e7e7e7 100%);
+    border-bottom: 1px solid silver;
+    text-shadow: 1px 1px 1px #fff; 
+    padding-left: 5px;   
+}
+
+.cbt_main {
+    position: absolute;    
+    overflow: auto;
+    top: 0px;
+    left: 0;
+    right: 0;
+    bottom: 50px;
+    padding: 5px;
+}
+
+.cbt_main label {
+    font-size: 12px;
+    margin-bottom: 5px;            
+    display: block;
+}
+
+.cbt_main fieldset {
+    margin: 0;
+    padding: 0;
+    margin-bottom: 5px;
+    border: 0;
+    background: 0;
+}
+
+.cbt_footer {
+    position: absolute;
+    height: 40px;
+    padding-top: 2px;
+    left: 5px;
+    bottom: 0;
+    right: 5px;    
+}
+
+.category_code {
+    color: silver;    
+}

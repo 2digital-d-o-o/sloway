@@ -1,0 +1,1 @@
+<div class='order_info'><?php echo $message ?></div>

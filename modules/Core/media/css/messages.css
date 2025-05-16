@@ -1,0 +1,24 @@
+
+.class_info {
+    margin: 10px 0;
+    padding: 10px 5px;
+    font-size: 16px;
+    text-align: center;
+    background-color: rgb(240, 240, 240);
+    border: 1px solid silver;
+}
+.class_info a {
+    color: black;
+}
+.class_error {
+    margin: 10px 0;
+    padding: 10px 5px;
+    font-size: 16px;
+    text-align: center;
+    background-color: rgba(139, 0, 0, 0.2);
+    border: 1px solid rgba(139, 0, 0, 0.4);
+    color: darkred;    
+}
+.class_error a {
+    color: darkred;    
+}
