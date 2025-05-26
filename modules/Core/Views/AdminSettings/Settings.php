@@ -22,7 +22,7 @@ $(document).module_loaded(function() {
 </script>
 <?php
 	echo Admin::AjaxForm_Begin('AdminSettings/Ajax_SettingsHandler');
-	
+	echo "TEST";
 	echo Admin::SectionBegin();
 	foreach ($settings as $name => $s) {
         switch ($s->type) {
