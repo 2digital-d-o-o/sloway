@@ -56,7 +56,7 @@ class AdminPages extends AdminController {
 			$title = $page->title;
 			if ($page->tags)
 				$title.= " [" . $page->tags . "]";
-            
+            $sub_pages = mlClass::load("pages", "@id_parent = " . $page->id . " ORDER BY id_order ASC");
             $row = array(
                 "id" => $page->id,
                 "attr" => "data-locked='" . intval($page->locked) . "'",
@@ -66,7 +66,8 @@ class AdminPages extends AdminController {
                     \Sloway\utils::modified($page->edit_time, $page->edit_user),
                     $menu
                 ),
-                "rows" => $this->pages_load(mlClass::load("pages", "@id_parent = " . $page->id . " ORDER BY id_order ASC"))
+                "rows_cnt" => count($sub_pages),
+                "rows" => $this->pages_load($sub_pages)
             );
             $rows[] = $row;            
         }
