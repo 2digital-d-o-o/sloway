@@ -199,9 +199,10 @@ class translator {
 			$base = APPPATH . "Lang";
 			
 		foreach ($this->added as $lang => $trans) {
+			$fc = config::get("lang.file_mask." . $lang, $lang);
 			if ($profile)
-				$path = "$base/$profile.$lang.php"; else
-				$path = "$base/$lang.php";
+				$path = "$base/$profile.$fc.php"; else
+				$path = "$base/$fc.php";
 			
 			$l = array();
 			if (file_exists($path)) 
