@@ -245,6 +245,7 @@ class AdminController extends BaseController {
 			"templates" => $templates,
 			"media" => $media,
 			"img_srv" => $img_srv,
+			"admin_logged" => \Sloway\admin_user::instance()->user_id
 		));
     }	
 

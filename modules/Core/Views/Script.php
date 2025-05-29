@@ -16,8 +16,8 @@ var lang_profile = "<?=lang::$profile_name?>";
 
 $.rl.images_url = '<?=$img_srv?>';
 
-<?php if (core::$profile == "admin"): ?>
 
+<?php if ($admin_logged): ?>
 $(document).keydown(function(e) {
     if (e.keyCode == 84 && e.shiftKey && e.altKey) {
         $.core.translate('<?=core::$profile?>', doc_base + "Admin/Ajax_Translate");
@@ -26,7 +26,9 @@ $(document).keydown(function(e) {
         return false;
     }
 });
+<?php endif ?>
 
+<?php if (core::$profile == "admin"): ?>
 var admin_module_path = '<?=path::gen("site.modules.Core", false)?>';
 var admin_site_domain = '<?=url::base()?>';
 var admin_upload_path = '/<?=path::gen("uploads")?>';

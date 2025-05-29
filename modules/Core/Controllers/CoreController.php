@@ -316,10 +316,11 @@ class CoreController extends Controller
 		$paths = new \Config\Paths;
 		$img_srv = $paths->imageServer;
 		if (!$img_srv) $img_srv = site_url("Core/Ajax_Image");
-		
+
+		$admin_logged = \Sloway\admin_user::instance()->user_id;  
 		$this->response->setHeader('Content-Type', 'text/javascript');
 
-		return view("\Sloway\Views\Script", array("img_srv" => $img_srv));
+		return view("\Sloway\Views\Script", array("img_srv" => $img_srv, "admin_logged" => $admin_logged));
     }	
 	public function Error() {
 		if (file_exists(APPPATH . "Views/Error.php"))
