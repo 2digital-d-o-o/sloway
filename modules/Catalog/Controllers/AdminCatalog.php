@@ -2338,8 +2338,8 @@ class AdminCatalog extends AdminController {
             "type" => $type,
         ));
 		$res['buttons'] = array(
-			"create" => array("title" => "Create", "submit" => true, "key" => 13), 
-			"create_edit" => array("title" => "Create and edit", "submit" => true),
+			"create" => array("title" => t("Create"), "submit" => true, "key" => 13), 
+			"create_edit" => array("title" => t("Create and edit"), "submit" => true),
 			"cancel"
 		);
 				
@@ -2373,8 +2373,8 @@ class AdminCatalog extends AdminController {
 		$res['title'] = et("New item");
 		$res['content'] = $c;
 		$res['buttons'] = array(
-			"create" => array("title" => "Create", "submit" => true, "key" => 13), 
-			"create_edit" => array("title" => "Create and edit", "submit" => true),
+			"create" => array("title" => t("Create"), "submit" => true, "key" => 13), 
+			"create_edit" => array("title" => t("Create and edit"), "submit" => true),
 			"cancel"
 		);
 		
