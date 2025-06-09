@@ -31,7 +31,7 @@ $(document).keydown(function(e) {
 <?php if (core::$profile == "admin"): ?>
 var admin_module_path = '<?=path::gen("site.modules.Core", false)?>';
 var admin_site_domain = '<?=url::base()?>';
-var admin_upload_path = '/<?=path::gen("uploads")?>';
+var admin_upload_path = '/media/uploads/';
 var admin_uploads_url = '<?=str_replace(url::base(), "", path::gen("site.uploads"))?>';
 
 var trans_admin_rename = '<?=t('Rename')?>';
