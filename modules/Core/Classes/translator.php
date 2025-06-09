@@ -217,8 +217,8 @@ class translator {
 			
 			$c = "<?php\n";
 			foreach ($l as $key => $val) {
-				$key = addslashes($key, '"');
-				$val = addslashes($val, '"');
+				$key = addcslashes($key, '"');
+				$val = addcslashes($val, '"');
 				$c.= "\$l[\"$key\"] = \"$val\";\n";
 			} 
             
