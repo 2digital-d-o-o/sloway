@@ -852,6 +852,7 @@ class AdminSettings extends AdminController {
     }
     
     public function EditMessage($module, $var) {
+        $this->lang_selector = false;
         $this->messages_config();
         
         $this->path = array();

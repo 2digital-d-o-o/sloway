@@ -46,7 +46,7 @@ $(document).ready(function() {
 
 <?php if ($order->_promo_code): ?>
 <div class="cart_promo_dode">
-    <span>Promocijska koda:</span>
+    <span><?= et("cart_promo_code") ?></span>
     
     <input id="cart_promo_code" type="text" name="promo_code" value="<?=$order->promo_code?>" style="max-width: 150px; line-height: 25px" class="ac_border">
 	<button id="cart_promo_apply">Apply</button>
