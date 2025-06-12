@@ -1076,6 +1076,7 @@ class AdminCatalog extends AdminController {
         $this->categories = dbModel::load("adm_catalog_category"); 
         $this->product = dbModel::load("catalog_product", "@id = '$id'", 1, null, null, "*");
         $this->properties = dbModel::load("catalog_property");
+		$this->related = ($this->product->related_products) ? mlClass::load("catalog_product", "@id IN (" . $this->product->related_products . ") ORDER BY title ASC") : array();
     }
     protected function edit_bundle($id) {
         $this->bundle = dbModel::load('catalog_product', "@id = $id", 1);
@@ -2882,6 +2883,7 @@ class AdminCatalog extends AdminController {
 			"product" => $this->product,
 			"tax_rates" => $this->tax_rates,
 			"categories" => $this->categories,
+			"related" => $this->related,
 			"property_editor" => $this->PropertyEditor($this->product),
 		)));
 

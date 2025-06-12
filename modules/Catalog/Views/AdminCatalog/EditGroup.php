@@ -5,6 +5,7 @@
 	use \Sloway\config;
 	use \Sloway\mlClass;
 	use \Sloway\utils;
+	use \Sloway\arrays;
 ?>
 <script>
 function add_slot_item(src) {
@@ -18,6 +19,19 @@ function add_slot_item(src) {
         } 
     });
 }
+$(document).module_loaded(function() {
+    $("#admin_product_list_add").click(function() {
+        var editor = $(this).closest(".admin_field").find(".admin_tageditor");
+        editor.catalog_browser({types: "group", level: 0}, function(r) {
+            $.admin.tageditor.add($(this), r);
+        });       
+    });
+    $("#admin_product_list_rem").click(function() {
+        var editor = $(this).closest(".admin_field").find(".admin_tageditor");
+        editor.children("input").val("");
+        editor.children("ul").html("");    
+    });
+});
 </script>
 <?php   
 	echo Admin::AjaxForm_Begin('AdminCatalog/Ajax_GroupHandler/' . $product->id);
@@ -33,13 +47,16 @@ function add_slot_item(src) {
     echo Admin::Field(et('Tax rate'), Admin::Select('tax_rate', $tax_rates, $product->get_ml("tax_rate"), true));
 
 	echo Admin::Field(et("Categories"), Admin::CategorySelect("categories", acontrol::tree_items($categories, "subcat"), $product->categories, array("style" => "height: 175px")));
-
+    $menu = "<br><a class='admin_link add' id='admin_product_list_add'>" . et("Add") . "</a>";
+    $menu.= "<br><a class='admin_link del' id='admin_product_list_rem'>" . et("Clear") . "</a>";
+	echo Admin::Field(et("Related products") . $menu, Admin::TagEditor("related_products", arrays::regen($related)));	
+    
     echo Admin::SectionEnd();
     
     echo Admin::SectionBegin(et("Properties"));
     echo $property_editor;
     echo Admin::SectionEnd();    
-    
+	
 	echo Admin::SectionBegin(et("Content"));
 	echo Admin::TemplateEditor("content", $product->get_ml("content"), true);
 	echo Admin::SectionEnd();
