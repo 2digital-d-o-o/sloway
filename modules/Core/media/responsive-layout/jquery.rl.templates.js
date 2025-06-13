@@ -360,7 +360,7 @@
         },
         buttons: {
             add: { 
-                title: 'Add banner', 
+                title: 'Add banner',
                 click: function(e) {
                     $.rleditor.image_list.add.apply(this, [e, $.rleditor.options.templates.banner_list.list_ops]);
                 }
@@ -409,6 +409,35 @@
         },
         onLoad: function(template, level, ops) {
             $.rleditor.image_list.load.apply(this, [template, level, ops, $.rleditor.options.templates.image_list.list_ops]);
+        }
+    }
+    $.rleditor.options.templates.category_grid = {
+        list_ops: {
+            edit: { alt: true, title: true },
+            template_class: "rl_template_category_grid"
+        },
+        buttons: {
+            add: { 
+                title: 'Add image', 
+                click: function(e) {
+                    $.rleditor.image_list.add.apply(this, [e, $.rleditor.options.templates.category_grid.list_ops]);
+                }
+            },
+            del: { 
+                title: 'Remove selected', 
+                click: function(e) {
+                    $.rleditor.image_list.remove.apply(this, [e, $.rleditor.options.templates.category_grid.list_ops])
+                }
+            }        
+        },
+        onOutput: function(target, level, ops) {
+            $.rleditor.image_list.output.apply(this, [target, level, ops, $.rleditor.options.templates.category_grid.list_ops]);
+        },
+        onCreate: function(temp_ops, new_frag) {
+            $.rleditor.image_list.create.apply(this, [temp_ops, new_frag, $.rleditor.options.templates.category_grid.list_ops]); 
+        },
+        onLoad: function(template, level, ops) {
+            $.rleditor.image_list.load.apply(this, [template, level, ops, $.rleditor.options.templates.category_grid.list_ops]);
         }
     } 
     $.rleditor.options.templates.image_slider = {
