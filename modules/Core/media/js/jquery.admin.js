@@ -514,10 +514,10 @@
                 
     $.admin.editor = {
         def_options: {
-            plugins: 'image,code,link',
+            plugins: 'image,code,link,textcolor,table,lists,advlist',
             promotion: false,
             menubar: false,
-            toolbar: 'styles fontsize | bold italic underline strikethrough | link image media table | align | checklist numlist bullist indent outdent | emoticons charmap | removeformat code',
+            toolbar: 'styles fontsize | bold italic underline strikethrough forecolor backcolor | link image media table | align | checklist numlist bullist indent outdent | emoticons charmap | removeformat code',
             image_advtab: true,
             preview_styles: false,
             style_formats_merge: true,
