@@ -5,7 +5,7 @@ namespace Sloway;
 class catalog_product_base extends dbModelObject {
 	public static $loaded_tags = null;
 	public static $loaded_discounts = null;
-	private $_tags = null;
+	protected $_tags = null;
 	public function load_tags() {
 		if (is_null(self::$loaded_tags)) {
 			$tags = mlClass::load("catalog_tag", "*", 0, array("index" => "id"));
@@ -137,7 +137,7 @@ class catalog_product_base extends dbModelObject {
 		$result = array();
 		foreach ($this->_tags as $tag) {
 			if (count($tag->$sel)) {
-				$icon = new stdClass();
+				$icon = new \stdClass();
 				$icon->title = $tag->title;
 				$icon->image = thumbnail::from_image($tag->$sel, "product_{$mode}_icon")->result;
 				$result[]= $icon;

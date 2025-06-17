@@ -374,6 +374,15 @@ class admin {
 		
 		return acontrol::edit($name, v($value, $name), $param);
 	}
+    public static function CheckBox($name, $value, $ml_mode = false, $param = array()) {
+		if ($ml_mode) {
+			return self::ml_field($name, $value, $ml_mode, "admin_check", $param, function($name, $postfix, $val, $lang, $def_val, $param) {
+				return acontrol::checkbox($name . $postfix, $val, $param);
+			});
+		}
+        
+		return acontrol::checkbox($name, v($value, $name), $param);
+	}
 	public static function Select($name, $items, $value, $ml_mode = false, $ops = null) {
 		if ($ml_mode) 
 			return self::ml_field($name, $value, $ml_mode, "admin_select", [$ops, $items], function($name, $postfix, $val, $lang, $def_val, $param) {
