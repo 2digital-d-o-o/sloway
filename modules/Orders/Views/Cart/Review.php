@@ -49,7 +49,7 @@ $(document).ready(function() {
     <span><?= et("cart_promo_code") ?></span>
     
     <input id="cart_promo_code" type="text" name="promo_code" value="<?=$order->promo_code?>" style="max-width: 150px; line-height: 25px" class="ac_border">
-	<button id="cart_promo_apply">Apply</button>
+	<button id="cart_promo_apply"><?= et("promo_code_apply") ?></button>
     <div id="cart_promo_msg" style="padding-top: 10px"><?=$order->_promo_code->message()?></div>  
 </div>
 <?php endif ?>

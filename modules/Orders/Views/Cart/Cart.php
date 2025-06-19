@@ -86,4 +86,4 @@ $(document).ready(function() {
 </tr>
 </table>
 
-<?php echo $bottom_content ?>
+<?php isset($bottom_content) ? $bottom_content : "" ?>
