@@ -321,9 +321,9 @@ class template_compiler
         if(!$mode) return $content;
 
         if ($mode === "development") {
-            $prefix = getenv("DEV_PROJECT_URL");
+            $prefix = getenv("DEV_MAIN_LANG_SITE_URL");
         } else if ($mode === "production") {
-            $prefix = getenv("PROJECT_URL");
+            $prefix = getenv("MAIN_LANG_SITE_URL");
         }
 
         if(!$prefix) return $content;
