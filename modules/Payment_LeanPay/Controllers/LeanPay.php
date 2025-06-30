@@ -1,6 +1,7 @@
 <?php 
 
 namespace Sloway\Controllers;
+use Sloway\order;
 
 // defined('SYSPATH') OR die('No direct access allowed.');
 
