@@ -2,6 +2,7 @@
 
 namespace Sloway\Controllers;
 use Sloway\order;
+use Sloway\url;
 
 // defined('SYSPATH') OR die('No direct access allowed.');
 
