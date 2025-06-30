@@ -6,7 +6,7 @@ namespace Sloway\Controllers;
 
 class LeanPay extends \App\Controllers\BaseController {
 	public function Success($id) {
-		$order = order::load($id);
+		$order = order::load("order", "@id=".$id."", 1);
 		$order->action("accept", true);  
 
 		$url = url::site("Cart/Invoice/" . $order->id . "/" . $order->hash);
