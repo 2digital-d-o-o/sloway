@@ -12,7 +12,8 @@ class LeanPay extends \App\Controllers\BaseController {
 		$order->action("accept", true);  
 
 		$url = url::site("Cart/Invoice/" . $order->id . "/" . $order->hash);
-		url::redirect($url);
+		
+		return $url;
 	}
 
 	public function Status() {
