@@ -65,7 +65,7 @@
             
             return false;
         }
-        public function apply($order) {
+        public function apply($order, $tax_rate) {
 			if (!$this->code) return;
             if (!$this->valid) return;
 			
@@ -83,13 +83,13 @@
                     $price = fixed::sub($price, $ap['price']);
                 
                 $value = -$this->code->value / 100 * $price;    
-                $order->setPrice("credit", $value, 0.22);
+                $order->setPrice("credit", $value, $tax_rate);
 				$this->applied = true;
             }
 			
             if ($type == "credit") {
                 $value = -$this->code->value;    
-                $order->setPrice("credit", $value, 0.22);
+                $order->setPrice("credit", $value, $tax_rate);
 				$this->applied = true;
             }
                
