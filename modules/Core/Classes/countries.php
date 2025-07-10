@@ -332,6 +332,10 @@ class countries {
 		return in_array($abbr, self::$europe);
 	}
 
+	public static function in_eu($abbr) {
+		return in_array($abbr, self::$eu);
+	}
+
 	public static function title($abbr) {
 		if (isset(countries::$list[$abbr]))
 			return countries::$list[$abbr]; else
