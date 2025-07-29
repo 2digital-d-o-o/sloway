@@ -167,6 +167,7 @@ class catalog_filter_base {
             $part->build($level);
             
             $level++;
+			// NEKI
         }
         
         $this->level = $level;
