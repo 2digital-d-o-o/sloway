@@ -119,7 +119,7 @@ class catalog_filter_base {
 			"flt_name" => "VARCHAR(50) NOT NULL",
 			"filtered" => "TINYINT NOT NULL"
 		);
-		$select = dbUtils::clone_table($db, $this->source, "catalog_filtered", true, $columns, $add_cols);
+		$select = dbUtils::clone_table($db, $this->source, "catalog_filtered", false, $columns, $add_cols);
         
         if ($this->base_sql)
             $base_sql = " AND " . $this->base_sql; else
@@ -134,7 +134,7 @@ class catalog_filter_base {
 		$db->query($sql);     
 		
 	//  DISCOUNTS
-		$q = $db->query("SELECT * FROM catalog_discount WHERE (visible = 1 OR visible REGEXP '[[:<:]]" . lang::$lang . "[[:>:]]') AND (time_from = 0 OR date_from < NOW()) AND (time_to = 0 OR date_to > NOW())")->getResult();
+		$q = $db->query("SELECT * FROM catalog_discount WHERE (visible = 1 OR visible REGEXP '[[:<:]]" . lang::$lang . "[[:>:]]') AND (time_from = 0 OR date_from < NOW()) AND (time_to = 0 OR date_to > NOW()) ORDER BY value DESC")->getResult();
 		foreach ($q as $qq) {
 			$d = $qq->value / 100;
 			$where = [];
@@ -145,11 +145,11 @@ class catalog_filter_base {
 			if ($qq->products)
 				$where[]= "(id IN ($qq->products))";
 
-			if (count($where)) {
-				$sql = "UPDATE catalog_filtered SET flt_price = flt_price * (1 - $d), flt_discount_id = '$qq->id', flt_discount = '$d' WHERE flt_discount < '$d' AND " . implode(" OR ", $where);
+			$sql = "UPDATE catalog_filtered SET flt_price = price * (1 - $d), flt_discount_id = '$qq->id', flt_discount = '$d' WHERE flt_discount < '$d'";
+			if (count($where))
+				$sql.= " AND " . implode(" OR ", $where);
 
-				$db->query($sql);
-			}
+			$db->query($sql);
 		}	
         
         $level = 0;
@@ -160,8 +160,7 @@ class catalog_filter_base {
             $part_sql = $part->sql($val);
             
             $l = $level+1;
-            $sql = "INSERT INTO `catalog_filtered` SELECT $columns,'$l','$name','1' FROM `catalog_filtered` WHERE flt_level = '$level' AND " . $part_sql;
-			// echod($sql);
+            $sql = "INSERT INTO `catalog_filtered` SELECT $select,flt_price,flt_discount,flt_discount_id,'$l','$name','1' FROM `catalog_filtered` WHERE flt_level = '$level' AND " . $part_sql;
             $this->db->query($sql);
             
             $part->build($level);

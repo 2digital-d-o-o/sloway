@@ -275,7 +275,7 @@ class catalog_base {
 		$columns = config::get("catalog.product_base_columns") . "," . config::get("catalog.product_columns");
 		$select = dbUtils::clone_table($db, "catalog_product", "site_catalog_product", true, $columns, null, "p.");
 		
-		$add_sql = "p.id_parent = 0 AND (p.visible = 1 OR p.visible REGEXP '[[:<:]]" . lang::$lang . "[[:>:]]') AND p.categories != '' AND p.price != 0";
+		$add_sql = "(p.visible = 1 OR p.visible REGEXP '[[:<:]]" . lang::$lang . "[[:>:]]') AND p.price != 0";
 		if ($load_sql) $add_sql.= " AND " . $load_sql;
 	
 		if ($include_lists) {
