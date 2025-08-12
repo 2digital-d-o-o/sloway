@@ -131,7 +131,7 @@ class AdminController extends BaseController {
 		}
 			
 		
-		\Sloway\lang::load("admin", ($this->admin_user) ? $this->admin_user->lang : null);
+		\Sloway\lang::load("admin"); // , ($this->admin_user) ? $this->admin_user->lang : null);
 //		if ($this->check_login && !$this->admin_user)
 //			$response->redirect("AdminLogin");
 

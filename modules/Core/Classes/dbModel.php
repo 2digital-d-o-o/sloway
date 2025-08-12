@@ -1,4 +1,19 @@
 <?php
+/*
+ORDER EXAMPLES
+c["order"] = false
+/
+
+c["order"] = true		
+ORDER BY id_order ASC
+
+c["order"] = "neki"
+ORDER BY neki ASC
+
+c["order"] = "ORDER BY aaa DESC";
+ORDER BY aaa DESC
+*/
+
 	namespace Sloway;
 
 	class dbModel {       
@@ -294,24 +309,28 @@
 			$class  = self::value("$name.class", "\Sloway\dbModelObject");
 			if ($index === null)
 				$index = self::value("$name.index", false);
-			
+
             $order_sql = "";
-			if (is_string($sql) && !is_numeric($sql)) {
-				$e = explode("ORDER", $sql, 2);
-				if (count($e))
-					$sql = $e[0];
-				if (count($e) > 1) 
-					$order_sql = "ORDER" . $e[1];
-			}
-				
-			if (!$order_sql) {
-				if (is_string($order)) {
-					$order_sql = $order;
-				} else
-				if ($order !== false)
-					$order_sql = "ORDER BY $order ASC"; else
-					$order_sql = "";
-			}
+			$e = explode("ORDER", $sql, 2);
+			if (count($e))
+				$sql = $e[0];
+			
+		//	FROM SQL STATEMENT 
+			if (count($e) > 1) 
+				$order_sql = "ORDER" . $e[1]; else
+		
+		//	FROM CONFIG 
+			if (is_string($order)) {
+				if (strpos($order, "ORDER") !== false)
+				//	config["order"] = "ORDER BY neki ASC";
+					$order_sql = $order; else
+				//	config["order"] = "neki";
+					$order_sql = "ORDER BY $order ASC";
+			} else
+			if ($order !== false)
+			//	config["order"] = true;
+				$order_sql = "ORDER BY id_order ASC"; else
+				$order_sql = "";			
 				
 			$objs = array();
 			if (isset(dbModel::$preloaded[$name])) {

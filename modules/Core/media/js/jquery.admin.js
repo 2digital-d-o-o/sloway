@@ -1190,6 +1190,7 @@
             var lang = $(this).attr("data-lang");
             var sel = $(this).parent();
             $("#module_form_lang").val(lang);
+            $.cookie(project_name + "_admin_form_lang", lang, {path: "/"});
             
             $(".admin_lang_selector > span").removeClass("selected");
             $(".admin_lang_selector > span[data-lang=" + lang + "]").addClass("selected");

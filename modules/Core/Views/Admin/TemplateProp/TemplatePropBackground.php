@@ -20,7 +20,7 @@ $.admin.template_editor.background_set_properties = function(template) {
     let classes=properties.find("[name=classes]");
     let inputString = classes.val();
     let newValue = properties.find("[name=rl_class_background]").val();
-    let array = inputString.split(',');
+    let array = inputString ? inputString.split(',') : [];
     array = array.map(value => value.startsWith("rl_class_background") ? "rl_class_background_"+newValue : value);
     if (!array.includes("rl_class_background_"+newValue)) {
         array.push("rl_class_background_"+newValue);

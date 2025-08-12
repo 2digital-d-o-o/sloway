@@ -71,6 +71,7 @@ $(document).module_loaded(function() {
  */
 	
 	$("#module_language [name=edit_lang]").change(function() {
+		$.cookie(project_name + "_admin_form_lang", $(this).val(), {path: '/'});
 		$.admin.reload_module(null, false, { admin_edit_lang: $(this).val() }, function(res) {
 			//$("#module_language [name=edit_lang]").ac_value(admin_edit_lang);
 		});

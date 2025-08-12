@@ -119,7 +119,7 @@ class catalog_filter_base {
 			"flt_name" => "VARCHAR(50) NOT NULL",
 			"filtered" => "TINYINT NOT NULL"
 		);
-		$select = dbUtils::clone_table($db, $this->source, "catalog_filtered", false, $columns, $add_cols);
+		$select = dbUtils::clone_table($db, $this->source, "catalog_filtered", true, $columns, $add_cols);
         
         if ($this->base_sql)
             $base_sql = " AND " . $this->base_sql; else

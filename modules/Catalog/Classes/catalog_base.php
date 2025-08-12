@@ -415,21 +415,24 @@ class catalog_base {
 		if ($pid)
 			$dst_path = catalog::category_path($pid, true) . "." . $cid; else
 			$dst_path = $cid;
+			
 		
-		$src = $src_path . ".";
-		$dst = $dst_path . ".";
+		$src = $src_path;
+		$dst = $dst_path;
+
+//		echod($src, $dst);
 		
 		$tables = config::get("catalog.move_cat_tables");
+//		echod($tables);
 		foreach ($tables as $table) {
 			$rows = self::$db->query("SELECT id,categories FROM `$table` WHERE categories REGEXP '[[:<:]]($src_path)[[:>:]]'")->getResult();
 			$insert = array();
 			$cache = array();
 			$cache_size = 0;
 			foreach ($rows as $prod) {
-				//echob("BEFORE: ", $prod->categories);
+//				echob("BEFORE: ", $prod->categories);
 
 				if (isset($cache[$prod->categories])) {
-					// echob("cache: ", $cache[$prod->categories]);
 					$insert[]= array("id" => $prod->id, "categories" => $cache[$prod->categories]);
 
 					continue;
@@ -439,9 +442,13 @@ class catalog_base {
 				$new_cats = array();
 
 				foreach ($cats as $cat) {
-					if (strpos($cat . ".", $src) === 0) 
-						$new_cat = trim(str_replace($src, $dst, $cat . "."), "."); else
-						$new_cat = $cat;
+					$new_cat = [];
+					foreach (explode(".", $cat) as $_cid) {
+						if ($_cid == $src) 
+							$new_cat[]= $dst; else
+							$new_cat[]= $_cid;
+					}
+					$new_cat = implode(".", $new_cat);
 
 					$add = true;
 					foreach ($new_cats as $i => $ex_cat) {
@@ -464,6 +471,8 @@ class catalog_base {
 
 				$insert[]= array("id" => $prod->id, "categories" => implode(",", $new_cats));
 			}		
+			//echob($table);
+			//echod($insert);
 
 			// echod($insert);
 			dbUtils::insert_update(self::$db, $table, $insert, true);
@@ -586,6 +595,109 @@ class catalog_base {
 		
 		self::$categories = $cats;
 	}
+	public static function discount_valid($discount, $pid, $cats, $tags) {
+		if ($discount->categories == "" && $discount->tags == "" && $discount->products == "") return true;
+		
+		if ($discount->categories && flags::inc($discount->categories, $cats)) return true;
+		if ($discount->tags && flags::inc($discount->tags, $tags)) return true;
+		if ($discount->products && flags::get($discount->products, $pid)) return true;
+		
+		return false;
+	}
+	public static function build_prices($db) {
+		$langs = lang::languages();
+		
+		$products = array();
+		
+		foreach ($db->query("SELECT id,id_parent,categories,tags,visible,price,price_action FROM catalog_product")->getResult() as $q) {
+			$prices = array();
+			foreach ($langs as $lang) {
+				$prices[$lang] = new \stdClass();
+				$prices[$lang]->regular = 0;
+				$prices[$lang]->action = 0;
+				$prices[$lang]->current = 0;
+				$prices[$lang]->discount = 0;
+				$prices[$lang]->debug = "";
+				
+				if ($lang == mlClass::$def_lang) {
+					$prices[$lang]->regular = $q->price;
+					$prices[$lang]->action = $q->price_action;
+				}
+			}
+			$q->prices = $prices;
+			$q->group_id = $q->id;
+			
+			unset($q->price);
+			unset($q->price_action);
+			
+			$products[$q->id] = $q;
+		}
+
+		foreach ($db->query("SELECT table_id,lang,price,price_action FROM catalog_product_ml")->getResult() as $ml) {
+			if (!isset($products[$ml->table_id])) continue;
+			
+			$products[$ml->table_id]->prices[$ml->lang]->regular = $ml->price;
+			$products[$ml->table_id]->prices[$ml->lang]->action = $ml->price_action;
+		}
+
+		foreach ($products as $product) {
+			if ($pid = $product->id_parent) {
+				$product->group_id = $pid;
+				$product->tags = $products[$pid]->tags;
+				$product->categories = $products[$pid]->categories;
+				
+				foreach ($langs as $lang) {
+					if (!floatval($product->prices[$lang]->regular)) $product->prices[$lang]->regular = $products[$pid]->prices[$lang]->regular;
+					if (!floatval($product->prices[$lang]->action)) $product->prices[$lang]->action = $products[$pid]->prices[$lang]->action;
+				}
+			}
+		}
+		
+		foreach ($products as $product) {
+			foreach ($langs as $lang) {	
+				$action = $product->prices[$lang]->action;
+				$regular = $product->prices[$lang]->regular;
+				if (!$regular) $regular = $action;
+				
+				if ($action && $action < $regular) {
+					$product->prices[$lang]->current = $action;
+					$product->prices[$lang]->discount = ($regular - $action) / $regular; 
+					$product->prices[$lang]->debug = "from action price";
+				} else 
+					$product->prices[$lang]->current = $regular;
+			}
+		}
+		
+		$discounts = array();
+		foreach ($db->query("SELECT * FROM catalog_discount WHERE (visible != '') AND (time_from = 0 OR date_from < NOW()) AND (time_to = 0 OR date_to > NOW()) ORDER BY value DESC")->getResult() as $q) {
+			$q->value = $q->value / 100;
+			$discounts[$q->id] = $q;
+		}
+		
+		foreach ($products as $product) {
+			foreach ($discounts as $discount) {
+				if (!catalog_base::discount_valid($discount, $product->group_id, $product->categories, $product->tags)) continue;
+				
+				foreach ($langs as $lang) {
+					if (($discount->visible == "1" || flags::get($discount->visible, $lang)) && $product->prices[$lang]->discount < $discount->value) {
+						$product->prices[$lang]->discount = $discount->value;
+						$product->prices[$lang]->current = floatval($product->prices[$lang]->regular) * (1 - $discount->value);
+						$product->prices[$lang]->debug = "from discount " . $discount->title;
+					}
+				}
+			}
+		}
+		
+		$result = array();
+		foreach ($products as $product) 
+			foreach ($langs as $lang) {
+				if (!flags::get($product->visible, $lang) && $product->visible != "1") continue;
+				$result[$product->id . "-" . $lang] = $product->prices[$lang]->current;
+			}
+
+		return $result;
+	}
+	
 }  
 
 

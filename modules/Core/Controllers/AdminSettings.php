@@ -260,6 +260,7 @@ class AdminSettings extends AdminController {
             'messages'   => "<a href='" . url::site("AdminSettings/Messages") . "' onclick='return admin_redirect(this)'>" . et('Messages') . "</a>",
             'navigation' => "<a href='" . url::site("AdminSettings/Navigation") . "' onclick='return admin_redirect(this)'>" . et('Navigation') . "</a>",
             'redirects'  => "<a href='" . url::site("AdminSettings/Redirects") . "' onclick='return admin_redirect(this)'>" . et('Redirects') . "</a>",
+            'language'   => "<a href='" . url::site("AdminSettings/Language") . "' onclick='return admin_redirect(this)'>" . et('Language') . "</a>",
 //            'meta_pixel_conversion_api'  => "<a href='" . url::site("AdminSettings/MetaPixelAndConversionApi") . "' onclick='return admin_redirect(this)'>" . et('Meta pixel and conversion api') . "</a>",
         );
         $this->tabs_method = array(
@@ -469,6 +470,13 @@ class AdminSettings extends AdminController {
 		)));
 		return $this->admin_view();
     }
+    public function Language() {
+		$this->module_path = array(et('Language') => '');
+        $this->module_content = Admin::tabs($this->module_tabs, "language", view("\Sloway\Views\AdminSettings\Language", array(
+		)));
+        
+		return $this->admin_view();
+    }      
     
     public function Ajax_RedirectsHandler() {
         $this->auto_render = false;
@@ -721,7 +729,6 @@ class AdminSettings extends AdminController {
 				$user->username = $u;
                 $user->id_role = $this->input->post("id_role");
 				$user->password = account::encode($p);
-				$user->lang = $this->input->post("lang");
 				$user->save();
                 
                 $res['close'] = true;
@@ -752,12 +759,6 @@ class AdminSettings extends AdminController {
         if ($msg)
             $c.= "<div class='admin_message failure'>$msg</div>";
 		
-		$langs = array();
-		foreach (lang::languages(false) as $lang) {
-			$langs[$lang] = t("lang_" . $lang);
-		}
-		
-		$c.= Admin::Field(et('Language'), acontrol::select('lang', $langs, v($user, "lang")));
         $c.= Admin::Field(et('Username'), acontrol::edit('username', v($user, "username")));
         $c.= Admin::Field(et('Password'), acontrol::edit('npassword', '', array('password' => true)));
         $c.= Admin::Field(et('Confirm password'), acontrol::edit('cpassword', '', array('password' => true)));

@@ -18,7 +18,7 @@ class admin {
 		$res = "";
 		
 		$langs = lang::languages(true);
-		$cl = isset($_POST["admin_form_lang"]) ? $_POST["admin_form_lang"] : null;
+		$cl = isset($_COOKIE[core::$project_name . "_admin_form_lang"]) ? $_COOKIE[core::$project_name . "_admin_form_lang"] : null;
 		if (!$cl || !in_array($cl, $langs))
 			$cl = reset($langs);
 		
@@ -295,7 +295,9 @@ class admin {
         if ($view_url) {
             $res.= "<h2 class='admin_section_header'>" . et("URL") . "</h2>";
 			$langs = lang::languages(true);
-			$cl = reset($langs);
+			$cl = isset($_COOKIE[core::$project_name . "_admin_form_lang"]) ? $_COOKIE[core::$project_name . "_admin_form_lang"] : null;
+			if (!$cl || !in_array($cl, $langs))
+				$cl = reset($langs);	
 			
 			if (count($langs) > 1) {
 				$res.= "<div class='admin_lang_selector' style='margin-bottom: 5px'>";

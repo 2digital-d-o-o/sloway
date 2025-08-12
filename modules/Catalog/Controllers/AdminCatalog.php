@@ -2836,6 +2836,7 @@ class AdminCatalog extends AdminController {
 	
 //  EDIT
     public function EditCategory($id) {
+		$this->lang_selector = false;
         $this->edit_category($id);
 
         $this->module_path = array(
@@ -2854,6 +2855,7 @@ class AdminCatalog extends AdminController {
 		return $this->admin_view();
     }
     public function EditProperty($id) {
+		$this->lang_selector = false;
         $this->edit_property($id);
         
         $this->module_path = array(
@@ -2909,6 +2911,7 @@ class AdminCatalog extends AdminController {
 		return $this->admin_view();
     }    
     public function EditItem($id) {
+		$this->lang_selector = false;
         $this->edit_item($id);
         
         $this->module_path = array($this->item->title);

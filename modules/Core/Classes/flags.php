@@ -19,6 +19,17 @@ class flags {
 			return $res; else
 			return reset($res);
 	}
+	public static function inc($src, $flags) {
+		$src = "," . trim($src,",") . ",";
+		if (is_string($flags))
+			$flags = explode(",", $flags);
+			
+		foreach ($flags as $flg) 
+			if (strpos($src, "," . $flg . ",") !== false) 
+				return true;
+			
+		return false;
+	}	
 	public static function set($src, $flags, $st = null) {
 		if ($st !== null && !$st)
 			return self::rem($src, $flags);

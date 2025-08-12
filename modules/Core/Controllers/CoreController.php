@@ -270,27 +270,14 @@ class CoreController extends Controller
         echo json_encode($res);
     }   
     public function Ajax_Language() {
-        $profile = $this->input->post('profile');
+        $profile_name = $this->input->post('profile');
         $lang = $this->input->post('lang');
-        $mode = $this->input->post('mode', 'both');
-        
-        $profile = \Sloway\config::get("lang.$profile");
-        
-        if (isset($profile['content'])) {
-            $p = ($mode == 'both' || $mode == 'page');
-            $c = ($mode == 'both' || $mode == 'content');
-            
-            if ($p && in_array($lang, $profile['langs']))
-                set_cookie($profile['session'], $lang, 604800);
-                
-            $pc = \Sloway\config::get("lang." . $profile['content']['profile']);
-            if ($c && $pc != '' && in_array($lang, $pc['langs'])) 
-                set_cookie($profile['content']['session'], $lang, 604800);
-        } else 
-        if (in_array($lang, $profile['langs']))
-            set_cookie($profile['session'], $lang, 604800);  
-        
-        \Sloway\lang::$lang = $lang;
+        $profile = \Sloway\config::get("lang.$profile_name");
+		
+		if (!in_array($lang, $profile["langs"])) die("FAILED");
+		set_cookie(core::$project_name . "_" . $profile_name . "_lang", $lang, 604800);
+		
+		echo "OK";
     }
     public function Ajax_Image() {    
         $this->auto_render = false;
